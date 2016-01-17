@@ -52,9 +52,13 @@ class CityGisAggregator:
 		#succesvolle connections 
 		#data = demjson.encode(['meting_type': 'CS','voertuig_id': null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id])
 
-		data = [ { 'meting_type' : 'CS', 'voertuig_id' : -1, 'meting_datum' : date, 'waarde' : success, 'unit_id' : unit_id } ]
-		json = demjson.encode(data)
+		succesJson = [ { 'meting_type' : 'CS', 'voertuig_id' : -1, 'meting_datum' : date, 'waarde' : success, 'unit_id' : unit_id } ]
+        failedJson = [ { 'meting_type' : 'CF', 'voertuig_id' : -1, 'meting_datum' : date, 'waarde' : failed, 'unit_id' : unit_id } ]
+		json = demjson.encode(succesJson)
 		print json
+        json = demjson.encode(failedJson)
+		print json
+        
 		
 
 
