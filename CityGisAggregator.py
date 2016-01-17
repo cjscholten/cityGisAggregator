@@ -2,6 +2,7 @@
 
 
 import MySQLdb
+import json 
 
 class CityGisAggregator:
 	
@@ -41,14 +42,17 @@ class CityGisAggregator:
 
 	def __insertAggregateConnection(self, unit_id, date, success, failed):
 		#Voor nu: insert waardes in mysql database, totdat webservice klaar is
-		add_aggreg_conn = ("INSERT INTO `connection` (unit_id, `date`, succesful, failed) VALUES (%s, %s, %s, %s)")		
-		data_aggreg_conn = (unit_id, date, success, failed)
+		#add_aggreg_conn = ("INSERT INTO `connection` (unit_id, `date`, succesful, failed) VALUES (%s, %s, %s, %s)")		
+		#data_aggreg_conn = (unit_id, date, success, failed)
 
-		cur = self.db_aggregate.cursor()
-		cur.execute(add_aggreg_conn, data_aggreg_conn)
+		#cur = self.db_aggregate.cursor()
+		#cur.execute(add_aggreg_conn, data_aggreg_conn)
 		
-		self.db_aggregate.commit()
-		print cur.lastrowid
+		#self.db_aggregate.commit()
+		#print cur.lastrowid
+        #succesvolle connections 
+        print json.dumps({'meting_type': 'CS','voertuig_id": null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id})
+        
 
 
 aggregate = CityGisAggregator()
