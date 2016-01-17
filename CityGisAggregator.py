@@ -59,9 +59,9 @@ class CityGisAggregator:
         failedJson =  { 'meting_type' : 'CF', 'voertuig_id' : -1, 'meting_datum' : date, 'waarde' : failed, 'unit_id' : unit_id }
 
         req = urllib2.Request(url, json.dumps(succesJson), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
-            response = urllib2.urlopen(req)
-            the_page = response.read()
-            print the_page
+        response = urllib2.urlopen(req)
+        the_page = response.read()
+        print the_page
 
 
 
