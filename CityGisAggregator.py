@@ -2,7 +2,8 @@
 
 import MySQLdb
 import json
-import requests
+import urllib
+import urllib2
 
 class CityGisAggregator:
 
@@ -57,8 +58,10 @@ class CityGisAggregator:
         succesJson =  { 'meting_type' : 'CS', 'voertuig_id' : -1, 'meting_datum' : date, 'waarde' : success, 'unit_id' : unit_id }
         failedJson =  { 'meting_type' : 'CF', 'voertuig_id' : -1, 'meting_datum' : date, 'waarde' : failed, 'unit_id' : unit_id }
 
-        r = requests.post(url, data=succesJson)
-        print r.text
+        req = urllib2.Request(url, json.dumps(succesJson), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
+        response = urllib2.urlopen(req)
+        the_page = response.read()
+        print the_page
 
 
 
