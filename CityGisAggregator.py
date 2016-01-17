@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-
 import MySQLdb
 import demjson
 
@@ -47,16 +46,16 @@ class CityGisAggregator:
 
 		#cur = self.db_aggregate.cursor()
 		#cur.execute(add_aggreg_conn, data_aggreg_conn)
-		
+
 		#self.db_aggregate.commit()
 		#print cur.lastrowid
-        #succesvolle connections 
-        #data = demjson.encode(['meting_type': 'CS','voertuig_id': null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id])
-        
-        data = [ { 'a' : 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5 } ]
-        json = demjson.encode(data)
-        print json
-               
+		#succesvolle connections 
+		#data = demjson.encode(['meting_type': 'CS','voertuig_id': null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id])
+
+		data = [ { 'a' : 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5 } ]
+		json = demjson.encode(data)
+		print json
+		
 
 
 aggregate = CityGisAggregator()
