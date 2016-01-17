@@ -8,12 +8,12 @@ class CityGisAggregator:
 	def __init__(self):
 		self.db_citygis = MySQLdb.connect(host="localhost",    
                      user="root",         
-                     passwd="mijneigennaam",  
+                     passwd="Z32hKL",  
                      db="citygis")        
 
 		self.db_aggregate = MySQLdb.connect(host="localhost",    
                      user="root",         
-                     passwd="mijneigennaam",  
+                     passwd="Z32hKL",  
                      db="aggregate_results")  
 
 
