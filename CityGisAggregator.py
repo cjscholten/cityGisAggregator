@@ -51,6 +51,7 @@ class CityGisAggregator:
 		#print cur.lastrowid
 		#succesvolle connections 
 		#data = demjson.encode(['meting_type': 'CS','voertuig_id': null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id])
+        
         succesDate = date
         failedDate = date
         
