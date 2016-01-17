@@ -51,9 +51,11 @@ class CityGisAggregator:
 		#print cur.lastrowid
 		#succesvolle connections 
 		#data = demjson.encode(['meting_type': 'CS','voertuig_id': null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id])
-
-		failedJson = [ { 'meting_type' : 'CF', 'voertuig_id' : -1, 'meting_datum' : date, 'waarde' : failed, 'unit_id' : unit_id } ]
-        succesJson = [ { 'meting_type' : 'CS', 'voertuig_id' : -1, 'meting_datum' : date, 'waarde' : success, 'unit_id' : unit_id } ]
+        succesDate = date
+        failedDate = date 
+        
+		failedJson = [ { 'meting_type' : 'CF', 'voertuig_id' : -1, 'meting_datum' : successDate, 'waarde' : failed, 'unit_id' : unit_id } ]
+        succesJson = [ { 'meting_type' : 'CS', 'voertuig_id' : -1, 'meting_datum' : failedDate, 'waarde' : success, 'unit_id' : unit_id } ]
         
         json1 = demjson.encode(succesJson)
         json2 = demjson.encode(failedJson)
