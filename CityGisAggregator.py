@@ -2,8 +2,7 @@
 
 import MySQLdb
 import json
-import urllib
-import urllib2
+import requests
 
 class CityGisAggregator:
 
