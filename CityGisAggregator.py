@@ -51,7 +51,7 @@ class CityGisAggregator:
 		#self.db_aggregate.commit()
 		#print cur.lastrowid
         #succesvolle connections 
-        print json.dumps({'meting_type': 'CS','voertuig_id": null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id})
+        print json.dumps({'meting_type': 'CS','voertuig_id': null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id})
         
 
 
