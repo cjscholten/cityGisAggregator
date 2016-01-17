@@ -51,9 +51,12 @@ class CityGisAggregator:
 		#self.db_aggregate.commit()
 		#print cur.lastrowid
         #succesvolle connections 
-        data = demjson.encode(['meting_type': 'CS','voertuig_id': null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id])
-        print data
+        #data = demjson.encode(['meting_type': 'CS','voertuig_id': null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id])
         
+        data = [ { 'a' : 1, 'b' : 2, 'c' : 3, 'd' : 4, 'e' : 5 } ]
+        json = demjson.encode(data)
+        print json
+               
 
 
 aggregate = CityGisAggregator()
