@@ -55,8 +55,8 @@ class CityGisAggregator:
         #data = demjson.encode(['meting_type': 'CS','voertuig_id': null ,'meting_datum':date, 'waarde': success, 'unit_id': unit_id])
 
         url = "http://145.24.222.120/citygis/meting"
-        succesJson =  { 'meting_type' : 'CS', 'voertuig_id' : -1, 'meting_datum' : date, 'waarde' : success, 'unit_id' : unit_id }
-        failedJson =  { 'meting_type' : 'CF', 'voertuig_id' : -1, 'meting_datum' : date, 'waarde' : failed, 'unit_id' : unit_id }
+        succesJson =  { 'meting_type' : 'CS', 'voertuig_id' : unit_id, 'meting_datum' : date, 'waarde' : success, 'unit_id' : -1 }
+        failedJson =  { 'meting_type' : 'CF', 'voertuig_id' : unit_id, 'meting_datum' : date, 'waarde' : failed, 'unit_id' : -1 }
 
         req = urllib2.Request(url, json.dumps(succesJson), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
         response = urllib2.urlopen(req)
