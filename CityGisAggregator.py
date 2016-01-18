@@ -61,13 +61,13 @@ class CityGisAggregator:
 	print 'failure: ' , failedJson
 
 
-        #req = urllib2.Request(url, json.dumps(succesJson), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
-        #response = urllib2.urlopen(req)
-        #the_page = response.read()
+        req = urllib2.Request(url, json.dumps(succesJson), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
+        response = urllib2.urlopen(req)
+        the_page = response.read()
 
-        #req = urllib2.Request(url, json.dumps(failedJson), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
-        #response = urllib2.urlopen(req)
-        #the_page = response.read()
+        req = urllib2.Request(url, json.dumps(failedJson), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
+        response = urllib2.urlopen(req)
+        the_page = response.read()
         
 
 
