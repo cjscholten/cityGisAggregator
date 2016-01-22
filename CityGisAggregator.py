@@ -24,10 +24,7 @@ class CityGisAggregator:
         for row in failed:
             self.__insertMeting(row[0],row[1],row[2],'CF')
 
-
-
-        cur = self.db_citigis.cursor()
-
+     
         #Haal alle waarden op voor goede connectie
         cur.execute("select unit_id, DATE_FORMAT(`datetime`, '%Y-%m-%d'), count(*) from connection where `value` = 1 group by unit_id, DATE_FORMAT(`datetime`, '%Y-%m-%d')")
         success = list(cur.fetchall())
