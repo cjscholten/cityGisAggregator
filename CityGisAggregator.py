@@ -45,7 +45,7 @@ class CityGisAggregator:
         for day in days:
             totalDistance = 0
             cur = self.db_citygis.cursor()
-            sql = "select rdx, rdy from position where unit_id = " + str(day[0]) + " and DATE_FORMAT(`datetime`, '%Y-%m-%d') = " + day[1]
+            sql = "select rdx, rdy from position where unit_id = " + str(day[0]) + " and DATE_FORMAT(`datetime`, '%Y-%m-%d') = '" + day[1] + "'"
             print sql
             cur.execute(sql)
             positions = list(cur.fetchall())
