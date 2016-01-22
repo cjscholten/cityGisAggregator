@@ -41,10 +41,10 @@ class CityGisAggregator:
     def __insertMeting(self, unit_id, date, waarde, metingType):
         url = "http://145.24.222.120/citygis/meting"
         insertJson =  { 'meting_type' : metingType, 'voertuig_id' : unit_id, 'meting_datum' : date, 'waarde' : waarde }
-
-        req = urllib2.Request(url, json.dumps(insertJson), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
-        response = urllib2.urlopen(req)
-        print response.read()
+        print insertJson
+        #req = urllib2.Request(url, json.dumps(insertJson), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
+        #response = urllib2.urlopen(req)
+        #print response.read()
 
 
 
