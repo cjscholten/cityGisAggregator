@@ -40,7 +40,7 @@ class CityGisAggregator:
 
 
 
-    def __insertMeting(self, unit_id, date, waarde, metingTYpe):
+    def __insertMeting(self, unit_id, date, waarde, metingType):
         url = "http://145.24.222.120/citygis/meting"
         insertJson =  { 'meting_type' : metingType, 'voertuig_id' : unit_id, 'meting_datum' : date, 'waarde' : waarde }
         
