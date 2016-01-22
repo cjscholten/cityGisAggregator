@@ -46,7 +46,7 @@ class CityGisAggregator:
         
         req = urllib2.Request(url, json.dumps(insertJson), headers={'Content-type': 'application/json', 'Accept': 'application/json'})
         response = urllib2.urlopen(req)
-        echo response.read()
+        print response.read()
 
      
 
