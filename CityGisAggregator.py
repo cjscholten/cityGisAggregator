@@ -41,6 +41,7 @@ class CityGisAggregator:
         cur.execute("select distinct unit_id, DATE_FORMAT(`datetime`, '%Y-%m-%d') from position")
         days = list(cur.fetchall())
         #loopen door alle records om per voertuig per dag alle position records op te halen. 
+        print days
         for day in days:
             totalDistance = 0
             cur = self.db_citygis.cursor()
