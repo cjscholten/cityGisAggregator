@@ -4,6 +4,7 @@ import MySQLdb
 import json
 import urllib
 import urllib2
+from geopy.distance import vincenty
 
 class CityGisAggregator:
 
@@ -33,6 +34,35 @@ class CityGisAggregator:
 
 
 
+    def aggregateDistance(self):
+
+        cur = self.db_citygis.cursor()  
+        #Ophalen alle unieke combinaties van voertuig per dag. 
+        cur.execute("select distinct unit_id, DATE_FORMAT(`datetime`, '%Y-%m-%d') from position")
+        days = list(cur.fetchall())
+        #loopen door alle records om per voertuig per dag alle position records op te halen. 
+        for day in days:
+            totalDistance = 0
+            cur = self.db_citygis.cursor()
+            cur.execute("select rdx, rdy from position where unit_id = " + str(day[0]) + " and DATE_FORMAT(`datetime`, '%Y-%m-%d') = " + day[1])
+            positions = list(cur.fetchall())
+            posOud = [0,0]            
+            posNew = [0,0]
+            
+            #per voertuig per dag door de position records loopen om de afstand tussen alle records te bepalen, en zo de totale afstand te berekenen
+            for pos in positions:
+                posNew = pos 
+                
+                if (posOud[0] != 0 & posOud[0] != 0):
+                    distance = vincenty(posOud, posNew).meters
+                    totalDistance += distance 
+                    
+                posOud = posNew 
+                
+                       
+            self.__insertMeting(day[0],day[1],totalDistance,'PS')
+           
+            
 
 
     def __insertMeting(self, unit_id, date, waarde, metingType):
@@ -45,7 +75,8 @@ class CityGisAggregator:
         print response.read()
 
 
-
+        
 
 aggregate = CityGisAggregator()
-aggregate.aggregateConnection()
+#aggregate.aggregateConnection()
+aggregate.aggregateDistance()
