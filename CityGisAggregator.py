@@ -40,13 +40,11 @@ class CityGisAggregator:
         #Ophalen alle unieke combinaties van voertuig per dag. 
         cur.execute("select distinct unit_id, DATE_FORMAT(`datetime`, '%Y-%m-%d') from position")
         days = list(cur.fetchall())
-        #loopen door alle records om per voertuig per dag alle position records op te halen. 
-        print days
+        #loopen door alle records om per voertuig per dag alle position records op te halen.        
         for day in days:
             totalDistance = 0
             cur = self.db_citygis.cursor()
-            sql = "select rdx, rdy from position where unit_id = " + str(day[0]) + " and DATE_FORMAT(`datetime`, '%Y-%m-%d') = '" + day[1] + "'"
-            print sql
+            sql = "select rdx, rdy from position where unit_id = " + str(day[0]) + " and DATE_FORMAT(`datetime`, '%Y-%m-%d') = '" + day[1] + "'"            
             cur.execute(sql)
             positions = list(cur.fetchall())
             posOud = [0,0]            
