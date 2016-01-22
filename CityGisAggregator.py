@@ -56,7 +56,7 @@ class CityGisAggregator:
             for pos in positions:
                 posNew = pos 
                 
-                if (posOud[0] != 0 & posOud[0] != 0):
+                if (posOud[0] != 0 and posOud[1] != 0):
                     distance = vincenty(posOud, posNew).meters
                     totalDistance += distance 
                     
