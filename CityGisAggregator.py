@@ -20,10 +20,9 @@ class CityGisAggregator:
 
 
     def aggregateConnection(self):
-        
-        #Haal alle waarden op voor foute connectie
+                
         cur = self.db_citigis.cursor()   
-            
+        #Haal alle waarden op voor foute connectie    
         cur.execute("select unit_id, DATE_FORMAT(`datetime`, '%Y-%m-%d'), count(*) from connection where `value` = 0 group by unit_id, DATE_FORMAT(`datetime`, '%Y-%m-%d')")
         failed = list(cur.fetchall())
         for row in failed:
